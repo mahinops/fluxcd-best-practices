@@ -1,5 +1,7 @@
 # FluxCD- Usage Of An Open Source GitOps Tool.
 
+## [Quick Link for Usage](./USAGE.md)
+
 ## Background
 The main difference between regular DevOps and GitOps lies in how configuration management and deployment processes are handled.
 

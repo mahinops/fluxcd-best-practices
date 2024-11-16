@@ -63,3 +63,5 @@ kustomize build ./infrastructure/kind-test-cluster
 ```
 
 - Push all changes to the repository. Remember, after pushing, the changes will reflect in the cluster if the `gotk-sync.yaml` branch refers to the same branch you are pushing. 
+
+- Wait for some time, [till `gotk-sync.yaml` mentioned kustomization interval time] and check the changes applied or not.
