@@ -1,0 +1,5 @@
+resources:
+- nginx-v2-namespace.yaml
+- nginx-v3-namespace.yaml
+- nginx-v2-helmrelease.yaml
+- nginx-v3-helmrelease.yaml

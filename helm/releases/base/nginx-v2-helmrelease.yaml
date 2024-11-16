@@ -16,4 +16,4 @@ spec:
   interval: 1m
   valuesFrom:
   - kind: ConfigMap
-    name: nginx-values
+    name: nginx-v2-values

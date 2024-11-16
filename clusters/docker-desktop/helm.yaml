@@ -1,4 +1,4 @@
-# Kustomization custom resource to load resource located in the helm-repo directory
+# Kustomization custom resource to load resource located in the helm directory
 
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
@@ -7,7 +7,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 30s
-  path: ./helm-repos
+  path: ./helm/repositories
   prune: true
   sourceRef:
     kind: GitRepository

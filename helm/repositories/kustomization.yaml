@@ -1,2 +1,3 @@
 resources:
 - bitnami-helmrepo.yaml
+- ../releases
