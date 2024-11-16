@@ -1,0 +1,4 @@
+resources:
+- nginx_ns.yaml
+- nginx-depl.yaml
+- nginx-svc.yaml

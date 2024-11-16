@@ -51,7 +51,7 @@ sudo mv kustomize /usr/local/bin
 
 Use
 ```
-kustomize build apps/staging
+kustomize build apps/docker-desktop
 ```
 
 Check live change
