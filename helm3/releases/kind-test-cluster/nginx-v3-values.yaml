@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-v3-values
+  namespace: nginx-v3
+data:
+  values.yaml: |
+    replicaCount: 3

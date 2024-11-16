@@ -1,0 +1,5 @@
+resources:
+- ../../repositories
+- nginx-v2-values.yaml
+- nginx-v3-values.yaml
+- ../base
