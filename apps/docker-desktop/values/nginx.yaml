@@ -5,5 +5,4 @@ metadata:
   namespace: nginx-v2
 data:
   values.yaml: |
-    image.debug: true
     replicaCount: 3
