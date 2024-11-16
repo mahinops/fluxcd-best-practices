@@ -8,9 +8,13 @@ spec:
   chart:
     spec:
       chart: nginx
-      version: 13.0.0
+      version: 18.2.5
       sourceRef:
         kind: HelmRepository
         name: bitnami
         namespace: flux-system
   interval: 1m
+  valuesFrom:
+  - kind: ConfigMap
+    name: nginx-values
+    valueKey: values.yaml
