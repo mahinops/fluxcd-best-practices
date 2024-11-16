@@ -49,25 +49,29 @@ kustomize build helm/repositories/<cluster-name>
 6. Push all changes to the repository.
 
 7. Apply command_
-```
-export GITHUB_TOKEN=<token-here>
-flux bootstrap github \
-  --token-auth \
-  --owner=<github-username> \
-  --repository=<repository-name> \
-  --branch=main \
-  --path=clusters/docker-desktop \
-  --personal 
-```
+    ```
+    export GITHUB_TOKEN=<token-here>
 
-For my case I am applying the following command_
+    flux bootstrap github \
+    --token-auth \
+    --owner=<github-username> \
+    --repository=<repository-name> \
+    --branch=main \
+    --path=clusters/docker-desktop \
+    --personal 
+    ```
 
-```
-flux bootstrap github \
-  --token-auth \
-  --owner=mahinops \
-  --repository=fluxcd-best-practices \
-  --branch=main \
-  --path=clusters/kind-test \
-  --personal 
-```
+    For my case I am applying the following command_
+
+    ```
+    export GITHUB_TOKEN=<my-token-here>
+
+    flux bootstrap github \
+    --token-auth \
+    --owner=mahinops \
+    --repository=fluxcd-best-practices \
+    --branch=main \
+    --path=clusters/kind-test \
+    --personal 
+    ```
+8. Take a git pull you will see some extra configs.
