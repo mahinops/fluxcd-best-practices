@@ -55,4 +55,11 @@ Will take some time to spin up all the pods.
 
 - Change the path of `apps.yaml`, `helm.yaml` and `infrastructure.yaml` files from the new cluster eg. `clusters/kind-test-cluster` folder.
 
+- Check if all the configs are okay_
+```
+kustomize build ./helm3/releases/kind-test-cluster
+kustomize build ./apps/kind-test-cluster
+kustomize build ./infrastructure/kind-test-cluster
+```
+
 - Push all changes to the repository. Remember, after pushing, the changes will reflect in the cluster if the `gotk-sync.yaml` branch refers to the same branch you are pushing. 
