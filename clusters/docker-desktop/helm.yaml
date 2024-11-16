@@ -7,7 +7,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 30s
-  path: ./helm/repositories/docker-desktop
+  path: ./helm3/releases/docker-desktop
   prune: true
   sourceRef:
     kind: GitRepository

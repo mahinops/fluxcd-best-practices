@@ -5,4 +5,4 @@ metadata:
   namespace: nginx-v2
 data:
   values.yaml: |
-    replicaCount: 8
+    replicaCount: 4
