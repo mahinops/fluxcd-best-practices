@@ -8,25 +8,18 @@ kustomize build helm/repositories/<cluster-name>
 ## Steps:
 1. Create a new folder with the cluster-name in cluster folder.
     ```
-    mkdir clusters/<cluster-name>
+    mkdir -p clusters/<new-cluster> && cp clusters/docker-desktop/{apps.yaml,helm.yaml,infrastructure.yaml} clusters/<new-cluster>/
 
     <!-- eg. -->
-    mkdir clusters/kind-test-cluster
+    mkdir -p clusters/kind-test && cp clusters/docker-desktop/{apps.yaml,helm.yaml,infrastructure.yaml} clusters/kind-test/
+
     ```
 
-2. Copy everything from clusters/docker-desktop/flux-system and paste in new cluster folder.
-    ```
-    cp -r clusters/docker-desktop/flux-system clusters/<new-cluster>
+2. In `apps.yaml`, `helm.yaml` and `infrastructure.yaml` files from the new cluster folder eg. `clusters/kind-test` folder change the path from `docker-desktop` to `kind-test` or by new cluster name.
 
-    <!-- eg. -->
-    cp -r clusters/docker-desktop/flux-system clusters/kind-test-cluster
-    ```
+    **e.g** => `docker-desktop` to `kind-test`
 
-3. Replace everything named `docker-desktop` to your current cluster name. 
-
-    **e.g** => `docker-desktop` to `kind-test-cluster`
-
-4. Switch to the correct kube context. To check and switch_
+3. Switch to the correct kube context. To check and switch_
     ```
     #check current context
     kubectl config current-context 
@@ -38,31 +31,43 @@ kustomize build helm/repositories/<cluster-name>
     kubectl config use-context <context-name> 
     ```
 
-5. Apply the changes for new cluster_
-    ```
-    kubectl apply -f clusters/<new-cluster-name>/flux-system
-
-    <!-- eg.  -->
-    kubectl apply -f clusters/kind-test-cluster/flux-system
-    ```
-    Will take some time to spin up all the pods. 
-
-6. Create some folder named same with the cluster name in_
+4. Create some folder named same with the cluster name in_
     - apps/
     - infrastructure/
     - helm3/releases/
 
     Or you can just simply copy the docker-desktop folder and paste and change the name.
 
-7. Change the path of `apps.yaml`, `helm.yaml` and `infrastructure.yaml` files from the new cluster eg. `clusters/kind-test-cluster` folder.
 
-8. Check if all the configs are okay_
+5. Check if all the configs are okay_
     ```
-    kustomize build ./helm3/releases/kind-test-cluster
-    kustomize build ./apps/kind-test-cluster
-    kustomize build ./infrastructure/kind-test-cluster
+    kustomize build ./helm3/releases/kind-test
+    kustomize build ./apps/kind-test
+    kustomize build ./infrastructure/kind-test
     ```
 
-9. Push all changes to the repository. Remember, after pushing, the changes will reflect in the cluster if the `gotk-sync.yaml` branch refers to the same branch you are pushing. 
+6. Push all changes to the repository.
 
-10. Wait for some time, [till `gotk-sync.yaml` mentioned kustomization interval time] and check the changes applied or not.
+7. Apply command_
+```
+export GITHUB_TOKEN=<token-here>
+flux bootstrap github \
+  --token-auth \
+  --owner=<github-username> \
+  --repository=<repository-name> \
+  --branch=main \
+  --path=clusters/docker-desktop \
+  --personal 
+```
+
+For my case I am applying the following command_
+
+```
+flux bootstrap github \
+  --token-auth \
+  --owner=mahinops \
+  --repository=fluxcd-best-practices \
+  --branch=main \
+  --path=clusters/kind-test \
+  --personal 
+```

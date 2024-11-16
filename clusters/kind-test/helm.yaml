@@ -7,7 +7,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 30s
-  path: ./helm3/releases/kind-test-cluster
+  path: ./helm3/releases/kind-test
   prune: true
   sourceRef:
     kind: GitRepository
