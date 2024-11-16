@@ -1,3 +1,4 @@
 resources:
 - ../base
+- nginx-v2-namespace.yaml
 - nginx-helmrelease.yaml
