@@ -53,3 +53,9 @@ Use
 ```
 kustomize build apps/staging
 ```
+
+Check live change
+
+```
+watch kubectl get ns
+```
