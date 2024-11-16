@@ -1,4 +1,3 @@
 resources:
-- base/
-- values/
+- values/docker-desktop
 - docker-desktop/
